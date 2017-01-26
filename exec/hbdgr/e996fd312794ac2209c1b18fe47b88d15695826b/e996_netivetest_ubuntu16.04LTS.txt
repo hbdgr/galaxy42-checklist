@@ -1,0 +1,27 @@
+Version/revision: e996fd312794ac2209c1b18fe47b88d15695826b
+==============================================
+System info:
+Linux ubuntu16 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+Ubuntu 16.04 LTS \n \l
+
+==============================================
+Download sources from:
+https://github.com/yedino/galaxy42 - main repository
+
+[OK]
+
+==============================================
+Try to build code from sources
+---------------------------------------------
+First we need to install dependencies:
+
+./install.sh   (choosen simple packets)
+
+[OK]
+---------------------------------------------
+Build
+
+./do --go
+
+[OK]

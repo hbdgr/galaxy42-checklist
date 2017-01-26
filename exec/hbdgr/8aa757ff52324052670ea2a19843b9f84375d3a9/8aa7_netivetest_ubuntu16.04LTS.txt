@@ -1,0 +1,45 @@
+Version/revision: 8aa757ff52324052670ea2a19843b9f84375d3a9
+==============================================
+System info:
+Linux ubuntu16 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+Ubuntu 16.04 LTS \n \l
+
+==============================================
+Try to build code from sources
+
+Build
+
+./do --go
+
+[OK]
+
+==============================================
+Test tunserver in practice: [run]
+
+./tunserver.elf
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Error! /home/hbdgr/TEST1/galaxy42/src/g42-main.cpp:968 Exiting as explained above
+
+Our user do not have acces to tun device, There are two option
+1. galaxy42/share/script/install-as-root/install # script that gives some permissions (include changes in visudo)
+or
+2. sudo [ok]
+
+==============================================
+Test tunserver in practice: [connect to peer]
+
+example of peer: http://meshnet-users.tk/
+
+./tunserver.elf --peer 192.166.218.58:19042-fd42:f6c4:9d19:f128:30df:b289:aef0:25f5
+
+connection [OK]
+ping 	[OK] fd42:5315:70bc:fccc:362c:e5e9:3562:438
+	[OK] fd42:f6c4:9d19:f128:30df:b289:aef0:25f5
+
+==============================================
+Unit tests:
+
+./test-debug.elf
+
+[  ALL PASSED  ]

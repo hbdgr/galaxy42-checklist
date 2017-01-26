@@ -1,0 +1,47 @@
+BUG REPORT
+
+===================================================
+Galaxy42
+Revision: 8aa757ff52324052670ea2a19843b9f84375d3a9
+Version: yedino/dev
+===================================================
+System info:
+Ubuntu 16.04 LTS
+
+Linux ubuntu16 4.4.0-21-generic #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+
+===================================================
+
+Steps to reproduce bug:
+
+./test-debug.elf   # unit tests
+[OK] - [  PASSED  ] 77 tests.
+
+Now first run:
+./tunserver.elf
+And in another tab run tests:
+./test-debug.elf
+
+[----------] 1 test from utility
+[ RUN      ] utility.parse_ip_number    !!!
+Aborted (core dumped)
+
+After look at this test closer (without running tunserver in background):
+[----------] 1 test from utility
+[ RUN      ] utility.parse_ip_number
+Starting RPC server thread
+RPC thread start
+io_service run
+rpc server destructor
+io service stopped, join thread
+end of io_service run
+io_service reset
+RPC thread stop
+thread joined
+
+===================================================
+Conclusions:
+Something in test utility.parse_ip_number is implemented wrong.
+Threr should not be code dump in any case.
+
+
